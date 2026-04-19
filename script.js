@@ -430,7 +430,7 @@ ${orderData.projectDescription}
 }
 
 // URL Cloudflare Worker (замени на свой после деплоя)
-const WORKER_URL = 'YOUR_WORKER_URL_HERE';
+const WORKER_URL = 'https://nixiers.github.io/';
 
 // Обновляем функцию отправки заказа через Cloudflare Worker
 async function submitOrder() {
