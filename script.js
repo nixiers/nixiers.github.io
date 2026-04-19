@@ -194,7 +194,7 @@ async function submitOrder() {
     
     try {
         // Отправка на сервер
-        const response = await fetch('/api/orders', {
+        const response = await fetch(WORKER_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ async function testTelegramBot() {
         console.log('🧪 Sending test request...');
         
         // Отправляем через Telegram Bot API
-        const response = await fetch('/api/test-telegram', {
+        const response = await fetch(WORKER_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -331,7 +331,7 @@ class TelegramBotManager {
             };
             
             // Отправляем через Telegram Bot API
-            const response = await fetch('/api/test-telegram', {
+            const response = await fetch(WORKER_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -430,7 +430,7 @@ ${orderData.projectDescription}
 }
 
 // URL Cloudflare Worker (замени на свой после деплоя)
-const WORKER_URL = 'https://nixiers.github.io/';
+const WORKER_URL = 'https://majestic-telegram-bot.nkabanskij.workers.dev/order';
 
 // Обновляем функцию отправки заказа через Cloudflare Worker
 async function submitOrder() {
