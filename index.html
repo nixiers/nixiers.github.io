@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIXIERS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="ru" onclick="switchLanguage('ru')">
+                <i class="fas fa-globe"></i> RU
+            </button>
+            <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">
+                <i class="fas fa-globe"></i> EN
+            </button>
+        </div>
+        <header class="main-header">
+            <div class="header-content">
+                <div class="left-section">
+                    <h1 class="username">nixiers</h1>
+                    <div class="user-info">
+                        <div class="info-row">
+                            <span class="label" data-translate="name">nixiers</span>
+                            <span class="value">developer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-section">
+                </div>
+                <div class="right-section">
+                    <div class="dog-image">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="bio-section">
+            <p class="bio-text" data-translate="bio">Профессиональная разработка веб-приложений и ботов для Discord и Telegram</p>
+        </div>
+
+        <section class="content-section">
+            <h2 class="subheader" data-translate="subheader">ОБО МНЕ</h2>
+            <p class="description" data-translate="description">Создаю современные веб-приложения и интеллектуальных ботов для вашего бизнеса. Использую передовые технологии для достижения максимальной эффективности.</p>
+            
+            <div class="section-block">
+                <div class="section-header">
+                    <span class="section-title" data-translate="subheader2">НАВЫКИ</span>
+                    <span class="cross-icon">✕</span>
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">
+                        <span class="bullet">></span>
+                        <span class="text" data-translate="text1">Frontend</span>
+                        <span class="info" data-translate="info3">HTML, CSS, JavaScript, React, Vue.js</span>
+                    </li>
+                    <li class="bullet-item">
+                        <span class="bullet">></span>
+                        <span class="text" data-translate="text2">Backend</span>
+                        <span class="info" data-translate="info4">Node.js, Python, PHP, базы данных SQL и NoSQL</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="services-section">
+            <h2 class="services-title" data-translate="services_title">МОИ УСЛУГИ</h2>
+            
+                        <div class="services-grid">
+                <div class="service-card">
+                    <h3 data-translate="service1_title">Создание сайтов</h3>
+                    <p data-translate="service1_desc">Разработка уникальных сайтов под ваши нужды</p>
+                    <button class="order-btn" onclick="openOrderModal('website')" data-translate="order_btn">Заказать</button>
+                </div>
+                <div class="service-card">
+                    <h3 data-translate="service2_title">Discord боты</h3>
+                    <p data-translate="service2_desc">Создание ботов для Discord с любыми функциями</p>
+                    <button class="order-btn" onclick="openOrderModal('discord')" data-translate="order_btn">Заказать</button>
+                </div>
+                <div class="service-card">
+                    <h3 data-translate="service3_title">Telegram боты</h3>
+                    <p data-translate="service3_desc">Разработка Telegram ботов для бизнеса и развлечений</p>
+                    <button class="order-btn" onclick="openOrderModal('telegram')" data-translate="order_btn">Заказать</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="progress-section">
+                <div class="progress-icon">$</div>
+                <div class="progress-text" data-translate="goal">Цель</div>
+                <div class="progress-counter">
+                    <span class="counter-digit">00</span>
+                    <span class="counter-digit">01</span>
+                    <span class="counter-digit">02</span>
+                    <span class="counter-digit">03</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Модальное окно для заказа услуг -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <h2 data-translate="order_title">Заказ услуги</h2>
+            <form id="orderForm">
+                <input type="hidden" id="serviceType" name="serviceType">
+                <div class="form-group">
+                    <label for="clientName" data-translate="client_name">Ваше имя:</label>
+                    <input type="text" id="clientName" name="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail" data-translate="client_email">Email:</label>
+                    <input type="email" id="clientEmail" name="clientEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientTelegram" data-translate="client_telegram">Telegram (@username):</label>
+                    <input type="text" id="clientTelegram" name="clientTelegram" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription" data-translate="project_desc">Описание проекта:</label>
+                    <textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" data-translate="submit_order">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
