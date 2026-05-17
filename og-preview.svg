@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#050510"/>
+  <g opacity=".45">
+    <path d="M0 460h1200M0 380h1200M0 300h1200M0 220h1200M120 0v630M280 0v630M440 0v630M600 0v630M760 0v630M920 0v630M1080 0v630" stroke="#ffffff" stroke-opacity=".08"/>
+  </g>
+  <circle cx="250" cy="150" r="250" fill="#7C3AED" opacity=".22"/>
+  <circle cx="960" cy="120" r="280" fill="#3B82F6" opacity=".18"/>
+  <rect x="760" y="190" width="135" height="135" rx="20" fill="#7C3AED" opacity=".72" transform="rotate(-18 827.5 257.5)"/>
+  <rect x="885" y="300" width="100" height="100" rx="18" fill="#3B82F6" opacity=".6" transform="rotate(-18 935 350)"/>
+  <text x="90" y="250" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900">NIXIERS</text>
+  <text x="94" y="330" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600">Developer Portfolio</text>
+  <text x="94" y="390" fill="#C4B5FD" font-family="Arial, sans-serif" font-size="28">сайты • интерфейсы • боты • автоматизация</text>
+</svg>
