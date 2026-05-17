@@ -3,7 +3,9 @@ const navMenu = document.querySelector(".nav-menu");
 const revealItems = document.querySelectorAll(".reveal");
 const skillItems = document.querySelectorAll(".skill");
 const tiltTarget = document.querySelector("[data-tilt]");
+const contactForm = document.querySelector("#contactForm");
 const editableSelector = "input, textarea, [contenteditable='true']";
+const workerUrl = "https://majestic-telegram-bot.nkabanskij.workers.dev/order";
 
 if (navToggle && navMenu) {
     navToggle.addEventListener("click", () => {
@@ -62,6 +64,63 @@ if (tiltTarget && window.matchMedia("(pointer: fine)").matches) {
 
     tiltTarget.addEventListener("mouseleave", () => {
         tiltTarget.style.transform = "";
+    });
+}
+
+if (contactForm) {
+    const submitButton = contactForm.querySelector("button[type='submit']");
+    const statusText = contactForm.querySelector(".form-status");
+
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const name = String(formData.get("name") || "").trim();
+        const contact = String(formData.get("contact") || "").trim();
+        const message = String(formData.get("message") || "").trim();
+
+        if (!name || !contact || !message) {
+            statusText.textContent = "Заполните все поля перед отправкой.";
+            statusText.className = "form-status error";
+            return;
+        }
+
+        const orderData = {
+            serviceType: "portfolio",
+            clientName: name,
+            clientEmail: contact.includes("@") ? contact : "Не указан",
+            clientTelegram: contact.startsWith("@") ? contact : contact,
+            projectDescription: message,
+            timestamp: new Date().toISOString(),
+            source: "nixiers.github.io"
+        };
+
+        submitButton.disabled = true;
+        submitButton.dataset.originalText = submitButton.innerHTML;
+        submitButton.innerHTML = "Отправляю...";
+        statusText.textContent = "";
+        statusText.className = "form-status";
+
+        try {
+            const response = await fetch(workerUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(orderData)
+            });
+
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            contactForm.reset();
+            statusText.textContent = "Заявка отправлена. Я скоро свяжусь с вами.";
+            statusText.className = "form-status success";
+        } catch (error) {
+            console.error("Order submit error:", error);
+            statusText.textContent = "Не удалось отправить заявку. Напишите в Telegram или попробуйте позже.";
+            statusText.className = "form-status error";
+        } finally {
+            submitButton.disabled = false;
+            submitButton.innerHTML = submitButton.dataset.originalText;
+        }
     });
 }
 

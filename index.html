@@ -170,11 +170,12 @@
                         <a href="https://github.com/nixiers" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i><span>GitHub</span><strong>github.com/nixiers</strong></a>
                         <a href="mailto:nixiers@proton.me"><i class="fa-solid fa-envelope"></i><span>Email</span><strong>nixiers@proton.me</strong></a>
                     </div>
-                    <form class="panel contact-form reveal" action="mailto:nixiers@proton.me" method="post" enctype="text/plain">
+                    <form class="panel contact-form reveal" id="contactForm">
                         <label><span>Имя</span><input type="text" name="name" autocomplete="name" required></label>
                         <label><span>Email или Telegram</span><input type="text" name="contact" autocomplete="email" required></label>
                         <label><span>Сообщение</span><textarea name="message" rows="5" required></textarea></label>
-                        <button class="btn btn-primary" type="submit">Отправить через Email <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="btn btn-primary" type="submit">Отправить заявку <i class="fa-solid fa-arrow-right"></i></button>
+                        <p class="form-status" role="status" aria-live="polite"></p>
                     </form>
                 </div>
             </section>
