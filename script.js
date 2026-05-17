@@ -4,6 +4,7 @@ const revealItems = document.querySelectorAll(".reveal");
 const skillItems = document.querySelectorAll(".skill");
 const tiltTarget = document.querySelector("[data-tilt]");
 const contactForm = document.querySelector("#contactForm");
+const submitOrderButton = document.querySelector("#submitOrderButton");
 const editableSelector = "input, textarea, [contenteditable='true']";
 const workerUrl = "https://majestic-telegram-bot.nkabanskij.workers.dev/order";
 
@@ -68,10 +69,10 @@ if (tiltTarget && window.matchMedia("(pointer: fine)").matches) {
 }
 
 if (contactForm) {
-    const submitButton = contactForm.querySelector("button[type='submit']");
+    const submitButton = submitOrderButton || contactForm.querySelector("button");
     const statusText = contactForm.querySelector(".form-status");
 
-    contactForm.addEventListener("submit", async (event) => {
+    const sendContactOrder = async (event) => {
         event.preventDefault();
 
         const formData = new FormData(contactForm);
@@ -121,7 +122,10 @@ if (contactForm) {
             submitButton.disabled = false;
             submitButton.innerHTML = submitButton.dataset.originalText;
         }
-    });
+    };
+
+    contactForm.addEventListener("submit", sendContactOrder);
+    submitButton.addEventListener("click", sendContactOrder);
 }
 
 document.addEventListener("contextmenu", (event) => {
